@@ -4,9 +4,9 @@
 		<div class="index_header">
 			<div class="index_location">
 				<div class="location_left">
-				 <!-- <svg class="v-md">
+				 <svg class="v-md">
 		            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#location"></use>
-		          </svg> -->
+		          </svg>
 					<span  class="v-md">黑龙江省哈尔滨市黑龙江大学</span>
 				</div>
 				<div class="index_login">
@@ -128,6 +128,14 @@
 	     	</Swipe>
 	     </div>
 	     <h3 class="index_title">推荐商家</h3>
+	     <!-- <div>
+               <OneBusiness v-for="n in getFalseBussinessbrief" :a="n"></OneBusiness>
+    	 </div> -->
+
+	     <!-- 撑开Fixednav挡住的位置 -->
+	     <!-- <div class="space"></div> -->
+	     <!-- 固定导航栏 -->
+	     <!-- <Fixednav></Fixednav> -->
 	  
 	</div>
 </template>
@@ -156,5 +164,122 @@
 	}
 </script>
 <style lang="less">
-	
+@baseBlue: #0096ff;
+@com_gray1: #666;
+@com_gray2: #999;
+.com_gray1{
+  color:@com_gray1;
+}
+.com_gray2{
+  color:@com_gray2;
+}
+.com_blue{
+  color:@baseBlue;
+}
+
+.index_main{
+  width: 10rem;
+  overflow:hidden; 
+  .index_header{
+    background:@baseBlue;
+    height:3rem;
+    padding:.26rem;
+    box-sizing:border-box;
+    overflow:hidden;
+    .index_location{
+      height:.9rem;
+      color:#fff;
+      width:10rem;
+      font-size:.4rem;
+      .location_left{
+        width:8rem;
+        svg{
+          width:.5rem;
+          height:.5rem;
+        }
+      }
+      .index_login{
+        position: absolute;
+        height:1rem;
+        font-size:.35rem;
+        right: 0;
+        top: 0;
+        line-height:1rem;
+        padding:0 .2rem;
+        a{
+          color:#fff;
+        }
+        
+      }
+    }
+    /* 搜索 */
+    .search_box{
+      width:9rem;
+      margin: 0 auto;
+      height:.9rem;
+      input[type="text"]{
+        width:100%;
+        height:.9rem;
+        outline:none;
+        font-size:.4rem;
+        text-align: center;
+        border:none;
+        display:block;
+        border-radius:.45rem;
+      }
+    }
+    /* 热搜 */
+    .hot_word{
+      height:1.2rem;
+      line-height:.9rem;
+      font-size:.3rem;
+      width:9.48rem;
+      overflow-x:auto;
+      white-space: nowrap;
+      span{
+        padding:0 .1rem;
+      }
+      a{
+        color:#fff;
+      }
+
+    }
+  }
+  .index_banner{
+    height:4.6rem;
+    background:#fff;
+    margin-bottom:0.2rem;
+    .common_slider{
+      width:2.5rem;
+      height:2rem;
+      float: left;
+      img{
+        margin: 0 auto;
+        display:block;
+        width:1.2rem;
+        height:1.2rem;
+        margin-top:.2rem;
+      }
+      p{
+        text-align:center;
+        font-size: .3rem;
+      }
+    }
+  }
+  .index_title{
+    line-height: .8rem;
+    font-weight: 600;
+    background: #fff;
+    border-top: 1px solid #eee;
+    font-size: .4rem;
+    padding-left: .4rem;
+  }
+  .space{
+    width:10rem;
+    height:1.2rem;
+  }
+}
+/* slider插件css + 改写*/
+.mint-swipe,.mint-swipe-items-wrap{overflow:hidden;position:relative;height:100%}.mint-swipe-items-wrap>div{position:absolute;-webkit-transform:translateX(-100%);transform:translateX(-100%);width:100%;height:100%;display:none}.mint-swipe-items-wrap>div.is-active{display:block;-webkit-transform:none;transform:none}.mint-swipe-indicators{position:absolute;bottom:10px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.mint-swipe-indicator{width:.1rem;height:.1rem;display:inline-block;border-radius:50%;background:#ccc;margin:0 3px}.mint-swipe-indicator.is-active{background:@baseBlue}
+
 </style>
