@@ -5,9 +5,13 @@
 			<div class="index_location">
 				<div class="location_left">
 				 <svg class="v-md">
-		            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#location"></use>
+		            <use xmlns:xlink="http://www.w3.org/1999/xlink" 
+
+xlink:href="#location"></use>
 		          </svg>
-					<span  class="v-md">黑龙江省哈尔滨市黑龙江大学</span>
+					<span  class="v-md">黑龙江省哈尔滨市黑龙江大学
+
+</span>
 				</div>
 				<div class="index_login">
 					<router-link to="/login">登陆</router-link>
@@ -16,7 +20,9 @@
 		</div>
 	     <!-- 搜索 -->
 	     <div class="search_box">
-	     	<input type="text" placeholder="搜索商家、商品" @keydown.enter="enter_search">
+	     	<input type="text" placeholder="搜索商家、商品" 
+
+@keydown.enter="enter_search">
 	     </div>
 	     <div class="hot_word">
 	     	<router-link to="/search">
@@ -180,7 +186,7 @@
 .index_main{
   width: 10rem;
   overflow:hidden; 
-  .index_header{
+  .index_header {
     background:@baseBlue;
     height:3rem;
     padding:.26rem;
@@ -280,6 +286,20 @@
   }
 }
 /* slider插件css + 改写*/
-.mint-swipe,.mint-swipe-items-wrap{overflow:hidden;position:relative;height:100%}.mint-swipe-items-wrap>div{position:absolute;-webkit-transform:translateX(-100%);transform:translateX(-100%);width:100%;height:100%;display:none}.mint-swipe-items-wrap>div.is-active{display:block;-webkit-transform:none;transform:none}.mint-swipe-indicators{position:absolute;bottom:10px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.mint-swipe-indicator{width:.1rem;height:.1rem;display:inline-block;border-radius:50%;background:#ccc;margin:0 3px}.mint-swipe-indicator.is-active{background:@baseBlue}
+.mint-swipe,.mint-swipe-items-wrap{overflow:hidden;position:relative;height:100%}.mint-
+
+swipe-items-wrap>div{position:absolute;-webkit-transform:translateX(-
+
+100%);transform:translateX(-100%);width:100%;height:100%;display:none}.mint-swipe-items-
+
+wrap>div.is-active{display:block;-webkit-transform:none;transform:none}.mint-swipe-
+
+indicators{position:absolute;bottom:10px;left:50%;-webkit-transform:translateX(-
+
+50%);transform:translateX(-50%)}.mint-swipe-indicator
+
+{width:.1rem;height:.1rem;display:inline-block;border-radius:50%;background:#ccc;margin:0 
+
+3px}.mint-swipe-indicator.is-active{background:@baseBlue}
 
 </style>
