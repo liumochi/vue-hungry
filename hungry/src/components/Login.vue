@@ -10,7 +10,47 @@
 	</div>
 </template>
 <script type="text/javascript">
-	
+	import Backbar from './small_components/Back_bar';
+	import { mapGetters } from 'vuex';
+	export default{
+		name:'login',
+		data (){
+			return {
+				uname:'',
+				pwd:''
+			}
+		},
+		mounted(){
+			if(this.getLogin){
+				this.$router.replace('/');
+			}
+		},
+		computed: {
+	    ...mapGetters([
+	      'getLogin',
+	      'getuname',
+	      'getpwd'
+   		 ])
+		},
+	    methods: {
+	    	cheack_n_p(){
+	    		if(this.uname===''||this.pwd===''){
+	    			alert('用户名或密码不能为空');
+	    			return;
+	    		}
+	    		if(this.uname!==this.getuname||this.pwd!==this.getpwd){
+        			alert('用户名或密码错误');
+	    		}else{
+	    			this.$store.dispatch('setLogin',true);
+	    			this.$router.replace('/');
+	    		}
+	    	}
+	    },
+	    components: {
+    		'Backbar': Backbar
+  		}
+  	 
+	}
 </script>
 <style lang="less" scoped>
 	.input_login{
