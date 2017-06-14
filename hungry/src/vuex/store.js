@@ -5,7 +5,7 @@ import mutations from './mutations';
 import actions from './actions';
 import getters from './getters';
 Vue.use(Vuex);
-export default new Vuex.store({
+export default new Vuex.Store({//Store首字母必须大写，否则报错
 	state,
 	mutations,
 	actions,
