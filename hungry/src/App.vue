@@ -15,7 +15,7 @@ export default {
   name: 'app',
   computed:{
     isLoading (){
-      return false;
+      return this.$store.getters.getloading;
     }
   }
 }

@@ -3,7 +3,10 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
-// import store from './vuex/store';
+import store from './vuex/store';
+import {setDPR,remChange} from './js/remChange';
+setDPR();
+remChange();
 
 
 Vue.config.productionTip = false
@@ -12,7 +15,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  // store,
+  store,
   template: '<App/>',
   components: { App }
 })
