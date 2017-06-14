@@ -1,5 +1,5 @@
 <template>
-	<div class="index_main">
+	<div class="index_main" v-if="showMe">
 	<!-- 首页 -->
 		<div class="index_header">
 			<div class="index_location">
@@ -11,24 +11,23 @@ xlink:href="#location"></use>
 		          </svg>
 					<span  class="v-md">黑龙江省哈尔滨市黑龙江大学
 
-</span>
+					</span>
 				</div>
 				<div class="index_login">
 					<router-link to="/login">登陆</router-link>
 				</div>
-			</div>  
+			</div> 
+			  <!-- 搜索 -->
+		     <div class="search_box">
+		     	<input type="text" placeholder="搜索商家、商品"  @keydown.enter="enter_search" v-model="search_word">
+		     </div>
+		     <div class="hot_word">
+		     	<router-link v-for="x in getFalseHotWord" :to="'/search/' + x.search_word">
+		     		<span>{{x.title}}</span>
+		     	</router-link>
+		     </div> 
 		</div>
-	     <!-- 搜索 -->
-	     <div class="search_box">
-	     	<input type="text" placeholder="搜索商家、商品" 
-
-@keydown.enter="enter_search">
-	     </div>
-	     <div class="hot_word">
-	     	<router-link to="/search">
-	     		<span>ddd</span>
-	     	</router-link>
-	     </div>
+	   
 	     <div class="index_banner">
 	     	<Swipe class="my_swipe" :auto="0"> 
 	     	   <Swipe-item class="slide slide1">
@@ -139,33 +138,94 @@ xlink:href="#location"></use>
     	 </div> -->
 
 	     <!-- 撑开Fixednav挡住的位置 -->
-	     <!-- <div class="space"></div> -->
+	     <div class="space"></div>
 	     <!-- 固定导航栏 -->
-	     <!-- <Fixednav></Fixednav> -->
+	     <Fixednav></Fixednav>
 	  
 	</div>
 </template>
 <script type="text/javascript">
 	import { Swipe, SwipeItem} from 'vue-swipe';
+	import Fixednav from './small_components/Fixed_nav';
+	import { mapGetters } from 'vuex';
 	export default{
 		name: 'homepage',
 		data(){
 			return {
+				showMe:true,
+				search_word:'',
+				hot_word:'',
+				isLoadingMore:false
 
 			}
 		},
 		mounted(){
+			 console.log(mapGetters([
+		     'getLogin',
+		     'falseHotWord'
+		     ]));
+		      // 设置当前状态为加载中
+		      this.$store.dispatch('setLoading',true);
+		      // 设置当前标记为主页
+		      this.$store.dispatch('setWhichpage','homepage');
 
+		      // 模拟请求等待
+		      var time  = Math.floor(Math.random()*2000);
+		      console.log('模拟加载'+time);
+		      setTimeout(()=>{
+		      		this.$store.dispatch('setLoading',false);
+		      		this.showMe=true;
+		      },time);
+		      setTimeout(() => {
+		      window.addEventListener('scroll', this.dispatchLoad, false);
+			    }, 0);
+			  },
+			  beforeDestroy () {
+			    window.removeEventListener('scroll', this.dispatchLoad, false);
+    
 		},
 		computed:{
-
+		    // 使用对象展开运算符将 getters 混入 computed 对象中
+		    // 等同于
+		    // isLogin () {
+		    //   return this.$store.getters.getLogin
+		    // }
+		    // 能少写不少代码
+		    ...mapGetters([
+		      'getLogin',
+		      'getFalseHotWord',
+		      'getFalseBussinessbrief' // 商家简略信息
+		    ])
 		},
 		methods:{
-
-		},
+			loadMore(){
+				if(this.getFalseBussinessbrief.length>15) return;
+				 this.$store.dispatch('setLoading',true);
+				 if (!this.isLoadingMore) { // 是否加载中
+		        this.isLoadingMore = true;
+		        setTimeout(() => {
+		          this.$store.dispatch('setLoading', false);
+		          if (this.getFalseBussinessbrief.length <= 15) {
+		            this.$store.dispatch('setHomepageMore', [...this.getFalseBussinessbrief, ...(this.getFalseBussinessbrief).slice(0, 5)]);
+		            // console.log(this.getFalseBussinessbrief);
+		          }
+		          this.isLoadingMore = false;
+		        }, 1000);
+      		   }
+			},
+			  // 触发加载更多
+		    dispatchLoad () {
+		      var dscrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+		      if (document.documentElement.offsetHeight <= (dscrollTop + window.innerHeight + 1)) {
+		        console.info('触发加载');
+		        this.loadMore();
+		      }
+		    }
+		},	
 		components:{
 			Swipe,
-			SwipeItem
+			SwipeItem,
+			Fixednav,
 		}
 	}
 </script>
@@ -186,6 +246,7 @@ xlink:href="#location"></use>
 .index_main{
   width: 10rem;
   overflow:hidden; 
+
   .index_header {
     background:@baseBlue;
     height:3rem;
