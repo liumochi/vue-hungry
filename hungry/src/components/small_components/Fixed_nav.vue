@@ -11,7 +11,7 @@
 		        <span>外卖</span>
 			</span>
 		</router-link> 
-		<router-link to="/">
+		<router-link to="/Order">
 			<span class="one_fixed_nav">
 				 <svg v-if="returnPageNow == 'order'">
 		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#order.070ae2a"></use>
@@ -23,7 +23,7 @@
 			</span>
 			
 		</router-link> 
-		<router-link to="/">
+		<router-link to="/myzone">
 			<span class="one_fixed_nav">
 				<svg v-if="returnPageNow == 'myzone'">
 		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#profile.dbc5ebf"></use>

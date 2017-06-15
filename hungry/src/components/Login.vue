@@ -42,7 +42,7 @@
         			alert('用户名或密码错误');
 	    		}else{
 	    			this.$store.dispatch('setLogin',true);
-	    			this.$router.replace('/');
+	    			this.$router.replace('/myzone');
 	    		}
 	    	}
 	    },

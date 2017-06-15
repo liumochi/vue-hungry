@@ -316,6 +316,7 @@ xlink:href="#location"></use>
     height:4.6rem;
     background:#fff;
     margin-bottom:0.2rem;
+   
     .common_slider{
       width:2.5rem;
       height:2rem;
