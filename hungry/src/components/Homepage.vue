@@ -13,7 +13,7 @@ xlink:href="#location"></use>
 
 					</span>
 				</div>
-				<div class="index_login">
+				<div class="index_login" v-if="!getLogin">
 					<router-link to="/login">登陆</router-link>
 				</div>
 			</div> 

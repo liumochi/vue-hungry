@@ -78,6 +78,19 @@
  			uname:''
  		}
  	},
+ 	mounted(){
+ 		if(!this.isLogin){
+ 			this.$router.replace('/login');
+ 		}else{
+ 			this.uname=this.$store.getters.getuname;
+ 			this.$store.dispatch('setWhichpage','myzone');
+ 		}
+ 	},
+ 	computed:{
+ 		isLogin(){
+ 			return this.$store.getters.getLogin;
+ 		}
+ 	},
  	components:{
  		Fixednav,
  		Backbar

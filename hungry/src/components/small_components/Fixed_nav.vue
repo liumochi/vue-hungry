@@ -1,7 +1,7 @@
 <template>
 	<nav class="fixed_nav">
 		<router-link to="/">
-			<span class="one_fixed_nav">
+			<span class="one_fixed_nav active">
 				<svg v-if="returnPageNow == 'homepage'">
 		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#index.18edf5a"></use>
 		        </svg>
@@ -11,7 +11,7 @@
 		        <span>外卖</span>
 			</span>
 		</router-link> 
-		<router-link to="/Order">
+		<router-link to="/order">
 			<span class="one_fixed_nav">
 				 <svg v-if="returnPageNow == 'order'">
 		          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#order.070ae2a"></use>
