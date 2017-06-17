@@ -133,9 +133,9 @@ xlink:href="#location"></use>
 	     	</Swipe>
 	     </div>
 	     <h3 class="index_title">推荐商家</h3>
-	     <!-- <div>
+	     <div>
                <OneBusiness v-for="n in getFalseBussinessbrief" :a="n"></OneBusiness>
-    	 </div> -->
+    	 </div>
 
 	     <!-- 撑开Fixednav挡住的位置 -->
 	     <div class="space"></div>
@@ -148,6 +148,7 @@ xlink:href="#location"></use>
 	import { Swipe, SwipeItem} from 'vue-swipe';
 	import Fixednav from './small_components/Fixed_nav';
 	import { mapGetters } from 'vuex';
+	import OneBusiness from './small_components/One_business';
 	export default{
 		name: 'homepage',
 		data(){
@@ -226,6 +227,7 @@ xlink:href="#location"></use>
 			Swipe,
 			SwipeItem,
 			Fixednav,
+			OneBusiness
 		}
 	}
 </script>
