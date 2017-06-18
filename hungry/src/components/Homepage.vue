@@ -199,6 +199,9 @@ xlink:href="#location"></use>
 		    ])
 		},
 		methods:{
+			enter_search(){
+				this.$router.push('/search/'+this.search_word);
+			},
 			loadMore(){
 				if(this.getFalseBussinessbrief.length>15) return;
 				 this.$store.dispatch('setLoading',true);
@@ -350,20 +353,6 @@ xlink:href="#location"></use>
   }
 }
 /* slider插件css + 改写*/
-.mint-swipe,.mint-swipe-items-wrap{overflow:hidden;position:relative;height:100%}.mint-
-
-swipe-items-wrap>div{position:absolute;-webkit-transform:translateX(-
-
-100%);transform:translateX(-100%);width:100%;height:100%;display:none}.mint-swipe-items-
-
-wrap>div.is-active{display:block;-webkit-transform:none;transform:none}.mint-swipe-
-
-indicators{position:absolute;bottom:10px;left:50%;-webkit-transform:translateX(-
-
-50%);transform:translateX(-50%)}.mint-swipe-indicator
-
-{width:.1rem;height:.1rem;display:inline-block;border-radius:50%;background:#ccc;margin:0 
-
-3px}.mint-swipe-indicator.is-active{background:@baseBlue}
+.mint-swipe,.mint-swipe-items-wrap{overflow:hidden;position:relative;height:100%}.mint-swipe-items-wrap>div{position:absolute;-webkit-transform:translateX(-100%);transform:translateX(-100%);width:100%;height:100%;display:none}.mint-swipe-items-wrap>div.is-active{display:block;-webkit-transform:none;transform:none}.mint-swipe-indicators{position:absolute;bottom:10px;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.mint-swipe-indicator{width:.1rem;height:.1rem;display:inline-block;border-radius:50%;background:#ccc;margin:0 3px}.mint-swipe-indicator.is-active{background:@baseBlue}
 
 </style>
